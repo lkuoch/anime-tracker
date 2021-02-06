@@ -1,12 +1,16 @@
 {
   "translation": {
-    "appTitle": "App"
+    "appTitle": "Anilist"
+  },
+
+  "vars": {
+    "anilist_endpoint": "https://graphql.anilist.co/"
   },
 
   "features": {
     "serviceWorker": {
       "__description__": "Allow offloading of redux to a service worker",
-      "enabled": true
+      "enabled": false
     },
 
     "header": {

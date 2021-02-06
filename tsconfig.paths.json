@@ -6,10 +6,9 @@
       "@Core/*": ["./src/Core/*"],
       "@Config": ["./src/Config/app.prod.json"],
       "@Middlewares/*": ["./src/Middlewares/*"],
-      "@Mock/*": ["./src/Mock/*"],
       "@Services/*": ["./src/Services/*"],
       "@Store/*": ["./src/Store/*"],
-      "@Styles/*": ["./src/Styles/*"],
+      "@Styles/*": ["./src/Styles/*"]
     }
   }
 }

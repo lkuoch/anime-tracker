@@ -1,9 +1,10 @@
-import { all, takeLatest } from "typed-redux-saga/macro";
+import { all, put, takeLatest } from "typed-redux-saga/macro";
 
 import { actions } from "./redux";
+import { actions as seriesActions } from "@Core/Series/redux";
 
 export function* initAppSaga() {
-  console.log("[SAGA]: APP STARTED");
+  yield* put(seriesActions.initSeries());
 }
 
 export default function* () {
