@@ -1,12 +1,15 @@
-import { ApiResult, createGQLAction } from "@Middlewares/models";
 import { gql } from "graphql-request";
 
-export const fetchSeriesResult = ApiResult("fetchSeriesResult");
+import { ApiResult, createGQLAction } from "@Middlewares/models";
+import type { _SeriesQuery, _SeriesQueryVariables } from "@Schema/anilist";
 
-export const fetchSeriesAction = (variables: { page: number }) =>
+export const fetchSeriesResult = ApiResult("fetchSeries");
+
+export const fetchSeriesAction = (variables: _SeriesQueryVariables) =>
   createGQLAction({
+    endpoint: CONFIG.vars.anilist_endpoint,
     query: gql`
-      query($page: Int) {
+      query _Series($page: Int) {
         Page(page: $page) {
           media {
             id
@@ -23,7 +26,6 @@ export const fetchSeriesAction = (variables: { page: number }) =>
         }
       }
     `,
-    endpoint: CONFIG.vars.anilist_endpoint,
     variables,
     types: [
       fetchSeriesResult.REQUEST,

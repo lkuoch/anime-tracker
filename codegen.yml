@@ -1,0 +1,11 @@
+documents: "src/**/*.ts"
+schema: https://graphql.anilist.co/
+generates:
+  ./src/Schema/anilist.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request
+config:
+  pureMagicComment: true
+  useTypeImports: true
