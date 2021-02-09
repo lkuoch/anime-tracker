@@ -1,6 +1,3 @@
-import type { GraphQLClient } from 'graphql-request';
-import { print } from 'graphql';
-import gql from 'graphql-tag';
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
@@ -4333,36 +4330,3 @@ export type _SeriesQuery = (
     )>>> }
   )> }
 );
-
-
-export const _SeriesDocument = /*#__PURE__*/ gql`
-    query _Series($page: Int) {
-  Page(page: $page) {
-    media {
-      id
-      title {
-        romaji
-        english
-        native
-      }
-      coverImage {
-        extraLarge
-      }
-      bannerImage
-    }
-  }
-}
-    `;
-
-export type SdkFunctionWrapper = <T>(action: () => Promise<T>) => Promise<T>;
-
-
-const defaultWrapper: SdkFunctionWrapper = sdkFunction => sdkFunction();
-export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
-  return {
-    _Series(variables?: _SeriesQueryVariables, requestHeaders?: Headers): Promise<_SeriesQuery> {
-      return withWrapper(() => client.request<_SeriesQuery>(print(_SeriesDocument), variables, requestHeaders));
-    }
-  };
-}
-export type Sdk = ReturnType<typeof getSdk>;

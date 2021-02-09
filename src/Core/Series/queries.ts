@@ -1,31 +1,15 @@
-import { gql } from "graphql-request";
+import { print } from "graphql";
 
 import { ApiResult, createGQLAction } from "@Middlewares/models";
-import type { _SeriesQuery, _SeriesQueryVariables } from "@Schema/anilist";
+import { _Series } from "@Schema/anilist.queries";
+import type { _SeriesQueryVariables } from "@Schema/anilist";
 
 export const fetchSeriesResult = ApiResult("fetchSeries");
 
 export const fetchSeriesAction = (variables: _SeriesQueryVariables) =>
   createGQLAction({
     endpoint: CONFIG.vars.anilist_endpoint,
-    query: gql`
-      query _Series($page: Int) {
-        Page(page: $page) {
-          media {
-            id
-            title {
-              romaji
-              english
-              native
-            }
-            coverImage {
-              extraLarge
-            }
-            bannerImage
-          }
-        }
-      }
-    `,
+    query: print(_Series),
     variables,
     types: [
       fetchSeriesResult.REQUEST,
