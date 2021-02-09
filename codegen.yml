@@ -12,3 +12,4 @@ generates:
 config:
   pureMagicComment: true
   useTypeImports: true
+  skipTypename: true

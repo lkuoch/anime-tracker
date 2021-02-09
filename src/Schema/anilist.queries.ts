@@ -1,20 +1,20 @@
-import gql from 'graphql-tag';
+import gql from "graphql-tag";
 
-export const _Series = /*#__PURE__*/ gql`
-    query _Series($page: Int) {
-  Page(page: $page) {
-    media {
-      id
-      title {
-        romaji
-        english
-        native
+export const Series = /*#__PURE__*/ gql`
+  query Series($page: Int) {
+    Page(page: $page) {
+      media {
+        id
+        title {
+          romaji
+          english
+          native
+        }
+        coverImage {
+          extraLarge
+        }
+        bannerImage
       }
-      coverImage {
-        extraLarge
-      }
-      bannerImage
     }
   }
-}
-    `;
+`;

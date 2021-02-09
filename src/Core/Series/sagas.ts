@@ -1,18 +1,18 @@
 import { all, put, takeLatest } from "typed-redux-saga/macro";
+import type { PayloadAction } from "@reduxjs/toolkit";
 
 import { fetchSeriesAction, fetchSeriesResult } from "./queries";
-import { actions } from "./redux";
-import type { _SeriesQuery } from "@Schema/anilist";
+import { actions, Series } from "./redux";
+import type { SeriesQuery } from "@Schema/anilist";
 
 export function* initSeriesSaga() {
   yield* put(fetchSeriesAction({ page: 1 }));
 }
 
-export function* fetchSeriesHandler(
-  action: IMiddlewareActionResult<_SeriesQuery>
-) {
+export function* fetchSeriesHandler(action: PayloadAction<SeriesQuery>) {
   if (action.type === fetchSeriesResult.SUCCESS) {
-    console.log("@", action.payload);
+    const media = (action.payload?.Page?.media as Series[]) ?? [];
+    yield* put(actions.addSeriesMultiple(media));
   } else {
     console.log("###", action);
   }

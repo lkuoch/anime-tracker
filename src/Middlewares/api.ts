@@ -3,7 +3,7 @@ import polly from "polly-js";
 
 import { CALL_GQL_MIDDLEWARE_TYPE, ICallGqlPayload } from "./models";
 
-export const callGQLMiddleware: Middleware<Dispatch> = ({
+export const gqlMiddleware: Middleware<Dispatch> = ({
   dispatch,
 }: MiddlewareAPI) => (next) => (action: AnyAction) => {
   if (action.type !== CALL_GQL_MIDDLEWARE_TYPE) return next(action);

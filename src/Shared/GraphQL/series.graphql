@@ -1,5 +1,5 @@
 # Fetch anime series by page
-query _Series($page: Int) {
+query Series($page: Int) {
   Page(page: $page) {
     media {
       id
