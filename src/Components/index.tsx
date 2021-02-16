@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import { actions } from "@Core/App/redux";
+import Header from "@Components/Header";
+import Anime from "@Components/Anime";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -12,11 +14,8 @@ export default function App() {
 
   return (
     <div id="app">
-      {CONFIG.features.header.enabled && (
-        <h3 className="ui block center aligned header">
-          {CONFIG.translation.appTitle}
-        </h3>
-      )}
+      <Header />
+      <Anime />
     </div>
   );
 }

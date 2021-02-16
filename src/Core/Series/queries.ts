@@ -1,8 +1,9 @@
 import { print } from "graphql";
 
 import { ApiResult, createGQLAction } from "@Middlewares/models";
-import { Series } from "@Schema/anilist.queries";
-import type { SeriesQueryVariables } from "@Schema/anilist";
+import { Series } from "@Shared/GraphQL/series.graphql";
+
+import type { SeriesQueryVariables } from "@Schema";
 
 export const fetchSeriesResult = ApiResult("fetchSeries");
 

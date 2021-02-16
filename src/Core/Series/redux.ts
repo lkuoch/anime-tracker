@@ -1,6 +1,7 @@
 import { createSlice, createEntityAdapter } from "@reduxjs/toolkit";
-import type { SeriesQuery } from "@Schema/anilist";
 import type { DeepExtractTypeSkipArrays } from "ts-deep-extract-types";
+
+import type { SeriesQuery } from "@Schema";
 
 export interface IAppState {}
 

@@ -1,8 +1,4 @@
 {
-  "translation": {
-    "appTitle": "Anilist"
-  },
-
   "vars": {
     "anilist_endpoint": "https://graphql.anilist.co/"
   },

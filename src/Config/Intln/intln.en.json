@@ -1,0 +1,10 @@
+{
+  "header": {
+    "title": "Anilist",
+    "description": "Anime database explorer",
+
+    "panel1Title": "Series and Movies",
+    "panel2Title": "Seasons",
+    "panel3Title": "Characters"
+  }
+}

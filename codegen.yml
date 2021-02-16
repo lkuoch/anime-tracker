@@ -1,14 +1,15 @@
 schema: https://graphql.anilist.co/
 documents: "src/**/*.graphql"
 generates:
-  ./src/Schema/anilist.d.ts:
+  ./src/Schema/graphql.d.ts:
     plugins:
       - typescript
       - typescript-operations
 
-  ./src/Schema/anilist.queries.ts:
+  ./src/Schema/global.d.ts:
     plugins:
-      - typescript-document-nodes
+      - typescript-graphql-files-modules
+
 config:
   pureMagicComment: true
   useTypeImports: true

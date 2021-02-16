@@ -13,7 +13,7 @@
     "sourceMap": true,
     "strict": true,
     "strictNullChecks": true,
-    "target": "ES6"
+    "target": "ES6",
   },
   "include": ["./src/**/*"],
   "exclude": ["node_modules", "dist"]

@@ -1,5 +1,6 @@
 // Make CONFIG globally available
 declare var CONFIG: typeof import("@Config");
+declare var INTLN: typeof import("@Intln");
 
 // Import web worker
 declare module "worker-loader!*" {
