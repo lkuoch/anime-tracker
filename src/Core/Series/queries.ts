@@ -12,9 +12,5 @@ export const fetchSeriesAction = (variables: SeriesQueryVariables) =>
     endpoint: CONFIG.vars.anilist_endpoint,
     query: print(Series),
     variables,
-    types: [
-      fetchSeriesResult.REQUEST,
-      fetchSeriesResult.SUCCESS,
-      fetchSeriesResult.FAILURE,
-    ],
+    types: [fetchSeriesResult.REQUEST, fetchSeriesResult.SUCCESS, fetchSeriesResult.FAILURE],
   });

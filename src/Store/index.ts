@@ -3,7 +3,7 @@ import { wrapStore } from "redux-in-worker";
 
 import workerInit from "worker-loader!@Store/store.worker";
 import { configureStore } from "./store";
-import { initialState } from "./redux";
+import { initialState } from "@Core/index";
 
 export function getStore() {
   if (CONFIG.features.serviceWorker.enabled) {

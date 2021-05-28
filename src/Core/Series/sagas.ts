@@ -24,9 +24,6 @@ export function* fetchSeriesHandler(action: PayloadAction<SeriesQuery>) {
 export default function* () {
   yield* all([
     takeLatest(actions.initSeries, initSeriesSaga),
-    takeLatest(
-      [fetchSeriesResult.SUCCESS, fetchSeriesResult.FAILURE],
-      fetchSeriesHandler
-    ),
+    takeLatest([fetchSeriesResult.SUCCESS, fetchSeriesResult.FAILURE], fetchSeriesHandler),
   ]);
 }

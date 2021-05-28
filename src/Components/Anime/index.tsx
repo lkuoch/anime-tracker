@@ -10,14 +10,7 @@ const Anime: FC = () => {
 
   return (
     <Grid container spacing={2}>
-      {ids.length > 0 &&
-        ids.map((id) => (
-          <AnimeCard
-            key={id}
-            id={id as number}
-            entity={entities[id] as Series}
-          />
-        ))}
+      {ids.length > 0 && ids.map((id) => <AnimeCard key={id} id={id as number} entity={entities[id] as Series} />)}
     </Grid>
   );
 };

@@ -8,12 +8,10 @@ declare module "worker-loader!*" {
   export = value;
 }
 
-/// Global types
-
 // Middleware action result
 declare type IMiddlewareActionResult<T = any> =
   | import("redux-api-middleware").RSAASuccessTypeDescriptor<any, T>
   | import("redux-api-middleware").RSAAFailureTypeDescriptor<any, T>;
 
 // Store root state
-declare type IRootState = ReturnType<typeof import("@Store/redux").rootReducer>;
+declare type IRootState = ReturnType<typeof import("@Store/store").rootReducer>;

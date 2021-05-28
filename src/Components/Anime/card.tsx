@@ -56,16 +56,8 @@ const AnimeCard: FC<IProps> = (props) => {
   return (
     <Grid item key={id}>
       <Card className={classes.root}>
-        <CardHeader
-          className={classes.header}
-          title={entity?.title?.english}
-          subheader={entity?.title?.native}
-        />
-        <CardMedia
-          className={classes.media}
-          image={entity?.coverImage?.extraLarge!}
-          title="anime-cover-image"
-        />
+        <CardHeader className={classes.header} title={entity?.title?.english} subheader={entity?.title?.native} />
+        <CardMedia className={classes.media} image={entity?.coverImage?.extraLarge!} title="anime-cover-image" />
         <CardActions disableSpacing>
           <IconButton
             className={clsx(classes.expand, {

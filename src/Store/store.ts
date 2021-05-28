@@ -1,11 +1,13 @@
 import { apiMiddleware } from "redux-api-middleware";
 import createSagaMiddleWare from "redux-saga";
-import { applyMiddleware, createStore, Middleware } from "redux";
+import { applyMiddleware, combineReducers, createStore, Middleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 import { gqlMiddleware } from "@Middlewares/api";
-import { rootReducer } from "./redux";
+import { reducerMap } from "@Core/index";
 import rootSagas from "./sagas";
+
+export const rootReducer = combineReducers(reducerMap);
 
 const getEnhancers = (middleWares: Array<Middleware>) => {
   if (process.env.NODE_ENV === "production") {
