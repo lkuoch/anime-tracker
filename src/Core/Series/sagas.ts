@@ -1,10 +1,11 @@
 import { all, put, takeLatest } from "typed-redux-saga/macro";
-import type { PayloadAction } from "@reduxjs/toolkit";
+import { PayloadAction } from "@reduxjs/toolkit";
 
-import { fetchSeriesAction, fetchSeriesResult } from "./queries";
-import { actions, Series } from "./redux";
 import mock from "./mock.json";
-import type { SeriesQuery } from "@Schema";
+import { fetchSeriesAction, fetchSeriesResult } from "./queries";
+import { actions } from "./redux";
+import { SeriesQuery } from "@GraphQL/schema";
+import { Series } from "./types";
 
 export function* initSeriesSaga() {
   const media: Series[] = mock.data.Page.media;

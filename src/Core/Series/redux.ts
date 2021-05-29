@@ -1,15 +1,5 @@
 import { createSlice, createEntityAdapter } from "@reduxjs/toolkit";
-import type { DeepExtractTypeSkipArrays } from "ts-deep-extract-types";
-
-import type { SeriesQuery } from "@Schema";
-
-export interface IAppState {}
-
-interface IState {
-  state: IAppState;
-}
-
-export type Series = DeepExtractTypeSkipArrays<SeriesQuery, ["Page", "media"]>;
+import { InitialState, Series } from "./types";
 
 // Slice details
 const name = "SERIES";
@@ -19,9 +9,9 @@ const adapter = createEntityAdapter<Series>({
   sortComparer: false,
 });
 
-const selector = adapter.getSelectors<IRootState>((state) => state[name]);
+const selector = adapter.getSelectors<RootState>((state) => state[name]);
 
-const initialState = adapter.getInitialState<IState>({
+const initialState = adapter.getInitialState<InitialState>({
   state: {},
 });
 
@@ -38,7 +28,7 @@ const { actions, reducer } = createSlice({
 });
 
 const selectors = {
-  selectAdapted: (state: IRootState) => ({
+  selectAdapted: (state: RootState) => ({
     ids: selector.selectIds(state),
     entities: selector.selectEntities(state),
   }),

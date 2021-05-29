@@ -7,9 +7,8 @@
       "@Config": ["./src/Config/app.prod.json"],
       "@Middlewares/*": ["./src/Middlewares/*"],
       "@Intln": ["./src/Config/Intln/intln.en.json"],
-      "@Schema": ["./src/Schema/graphql.d.ts"],
       "@Services/*": ["./src/Services/*"],
-      "@Shared/*": ["./src/Shared/*"],
+      "@GraphQL/*": ["./src/GraphQL/*"],
       "@Store/*": ["./src/Store/*"],
       "@Styles/*": ["./src/Styles/*"]
     }

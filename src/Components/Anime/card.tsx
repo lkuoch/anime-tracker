@@ -12,7 +12,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
-import type { Series } from "@Core/Series/redux";
+import { Series } from "@Core/Series/types";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

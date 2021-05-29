@@ -1,12 +1,13 @@
 import React, { FC } from "react";
-import { useSelector } from "react-redux";
 import Grid from "@material-ui/core/Grid";
 
 import AnimeCard from "./card";
-import { selectors, Series } from "@Core/Series/redux";
+import { selectors } from "@Core/Series/redux";
+import { Series } from "@Core/Series/types";
+import { useAppSelector } from "@Store/hooks";
 
 const Anime: FC = () => {
-  const { ids, entities } = useSelector(selectors.selectAdapted);
+  const { ids, entities } = useAppSelector(selectors.selectAdapted);
 
   return (
     <Grid container spacing={2}>

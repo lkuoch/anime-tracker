@@ -8,10 +8,19 @@ declare module "worker-loader!*" {
   export = value;
 }
 
+// Import graphql files
+declare module "*.graphql" {
+  import { DocumentNode } from "graphql";
+  const Schema: DocumentNode;
+
+  export = Schema;
+}
+
 // Middleware action result
-declare type IMiddlewareActionResult<T = any> =
+declare type MiddlewareApiResult<T = any> =
   | import("redux-api-middleware").RSAASuccessTypeDescriptor<any, T>
   | import("redux-api-middleware").RSAAFailureTypeDescriptor<any, T>;
 
 // Store root state
-declare type IRootState = ReturnType<typeof import("@Store/store").rootReducer>;
+declare type RootState = ReturnType<typeof import("@Store/store").rootReducer>;
+declare type AppDispatch = ReturnType<typeof import("@Store/store").configureStore>;
