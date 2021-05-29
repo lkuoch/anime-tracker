@@ -2,15 +2,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@App/*": ["./src/App/*"],
       "@Components/*": ["./src/Components/*"],
-      "@Core/*": ["./src/Core/*"],
-      "@Config": ["./src/Config/app.prod.json"],
-      "@Middlewares/*": ["./src/Middlewares/*"],
-      "@Intln": ["./src/Config/Intln/intln.en.json"],
-      "@Services/*": ["./src/Services/*"],
-      "@GraphQL/*": ["./src/GraphQL/*"],
-      "@Store/*": ["./src/Store/*"],
-      "@Styles/*": ["./src/Styles/*"]
+      "@DataLayer/*": ["./src/DataLayer/*"],
+      "@GraphQL/*": ["./src/GraphQL/*"]
     }
   }
 }

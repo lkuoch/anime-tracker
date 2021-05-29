@@ -1,13 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-
-import { getStore } from "@Store/index";
+import { store } from "@App/store";
 import App from "@Components/index";
-
-import "@Styles/app.less";
-
-const store = getStore();
 
 ReactDOM.render(
   <React.StrictMode>

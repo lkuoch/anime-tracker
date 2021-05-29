@@ -11,3 +11,4 @@ config:
   avoidOptionals: true
   useTypeImports: true
   skipTypename: true
+  maybeValue: null

@@ -1,18 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-export interface IAppState {}
+import { InitialState } from "./types";
 
 // Slice details
-const name = "APP";
+const name = "app";
 
-const initialState: IAppState = {};
+const initialState: InitialState = {};
 
 const { actions, reducer } = createSlice({
   name,
   initialState,
-  reducers: {
-    initApp: (slice) => slice,
-  },
+  reducers: {},
 });
 
 const selectors = {};

@@ -74,7 +74,7 @@ const Title: FC = () => {
             <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            {INTLN.header.title}
+            ANIME LIST
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>

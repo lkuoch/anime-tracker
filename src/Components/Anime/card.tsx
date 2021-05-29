@@ -12,7 +12,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
-import { Series } from "@Core/Series/types";
+import { Series } from "@DataLayer/Series/types";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -56,8 +56,16 @@ const AnimeCard: FC<IProps> = (props) => {
   return (
     <Grid item key={id}>
       <Card className={classes.root}>
-        <CardHeader className={classes.header} title={entity?.title?.english} subheader={entity?.title?.native} />
-        <CardMedia className={classes.media} image={entity?.coverImage?.extraLarge!} title="anime-cover-image" />
+        <CardHeader
+          className={classes.header}
+          title={entity?.title?.english}
+          subheader={entity?.title?.native}
+        />
+        <CardMedia
+          className={classes.media}
+          image={entity?.coverImage?.extraLarge!}
+          title="anime-cover-image"
+        />
         <CardActions disableSpacing>
           <IconButton
             className={clsx(classes.expand, {

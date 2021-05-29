@@ -2,12 +2,19 @@ import React, { FC } from "react";
 import Grid from "@material-ui/core/Grid";
 
 import AnimeCard from "./card";
-import { selectors } from "@Core/Series/redux";
-import { Series } from "@Core/Series/types";
-import { useAppSelector } from "@Store/hooks";
+import { useGetSeriesQuery } from "@DataLayer/Series/api";
+import { selectors } from "@DataLayer/Series/state";
+import { Series } from "@DataLayer/Series/types";
+import { useAppSelector } from "src/App/hooks";
 
 const Anime: FC = () => {
+  const page = useAppSelector(selectors.selectCurrentPage);
   const { ids, entities } = useAppSelector(selectors.selectAdapted);
+  const { isLoading } = useGetSeriesQuery({ page });
+
+  if (isLoading) {
+    return <h1>LOADING!!!</h1>;
+  }
 
   return (
     <Grid container spacing={2}>
