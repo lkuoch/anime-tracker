@@ -1,11 +1,10 @@
-import { createApi } from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { print } from "graphql";
-import { GraphQLBaseQuery } from "@GraphQL/api";
 import { Series, SeriesQueryVariables, SeriesQuery } from "@GraphQL/schema";
 
 export const seriesApi = createApi({
   reducerPath: "seriesApi",
-  baseQuery: GraphQLBaseQuery,
+  baseQuery: fetchBaseQuery({ baseUrl: CONFIG.vars.anilist_endpoint }),
   endpoints: (builder) => ({
     getSeries: builder.query<SeriesQuery, SeriesQueryVariables>({
       query: (variables = { page: 0 }) => ({
@@ -16,7 +15,7 @@ export const seriesApi = createApi({
           variables,
         },
       }),
-      transformResponse: (response: any) => response.data,
+      transformResponse: (response: { data: SeriesQuery }) => response.data,
     }),
   }),
 });

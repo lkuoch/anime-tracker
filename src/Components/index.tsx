@@ -5,9 +5,9 @@ import Anime from "@Components/Anime";
 
 export default function App() {
   return (
-    <div id="app">
+    <>
       <Header />
       <Anime />
-    </div>
+    </>
   );
 }

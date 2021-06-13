@@ -1,7 +1,7 @@
 import React, { FC } from "react";
-import Grid from "@material-ui/core/Grid";
+import { Grid, GridItem } from "@chakra-ui/react";
 
-import AnimeCard from "./card";
+import Card from "./card";
 import { useGetSeriesQuery } from "@DataLayer/Series/api";
 import { selectors } from "@DataLayer/Series/state";
 import { Series } from "@DataLayer/Series/types";
@@ -17,8 +17,12 @@ const Anime: FC = () => {
   }
 
   return (
-    <Grid container spacing={2}>
-      {ids.length > 0 && ids.map((id) => <AnimeCard key={id} id={id as number} entity={entities[id] as Series} />)}
+    <Grid templateColumns="repeat(5, 1fr)">
+      {ids.map((id) => (
+        <GridItem colSpan={1} key={id}>
+          <Card id={id as number} entity={entities[id] as Series} />
+        </GridItem>
+      ))}
     </Grid>
   );
 };

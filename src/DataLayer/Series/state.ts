@@ -24,12 +24,8 @@ const { actions, reducer } = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addMatcher(seriesApi.endpoints.getSeries.matchFulfilled, (state, { payload: { result } }) => {
-      const entities = result?.Page?.media as Series[];
-
-      if (entities) {
-        adapter.addMany(state, entities);
-      }
+    builder.addMatcher(seriesApi.endpoints.getSeries.matchFulfilled, (state, { payload: { Page } }) => {
+      Page?.media && adapter.addMany(state, Page.media as Series[]);
     });
   },
 });
