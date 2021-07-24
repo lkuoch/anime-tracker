@@ -1,16 +1,16 @@
 import * as app from "@DataLayer/App/state";
-import * as series from "@DataLayer/Series/state";
-import { seriesApi } from "@DataLayer/Series/api";
+import * as anilist from "@Packages/Anilist";
+
 
 // Export reducer state
 export const reducerMap = {
   [app.name]: app.reducer,
-  [series.name]: series.reducer,
+  ...anilist.reducers,
 };
 
 // Export api state
 export const apiMap = {
-  [seriesApi.reducerPath]: seriesApi.reducer,
+  ...anilist.apis,
 };
 
-export const apiMiddleware = [seriesApi.middleware];
+export const apiMiddleware = [...anilist.apiMiddlewares];

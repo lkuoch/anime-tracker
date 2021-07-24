@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { Badge, Box, Image } from "@chakra-ui/react";
 
-import { Series } from "@DataLayer/Series/types";
+import { Series } from "@Packages/Anilist/Series/types";
 
 interface Props {
   id: number;

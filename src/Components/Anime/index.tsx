@@ -2,9 +2,9 @@ import React, { FC } from "react";
 import { Grid, GridItem } from "@chakra-ui/react";
 
 import Card from "./card";
-import { useGetSeriesQuery } from "@DataLayer/Series/api";
-import { selectors } from "@DataLayer/Series/state";
-import { Series } from "@DataLayer/Series/types";
+import { useGetSeriesQuery } from "@Packages/Anilist/Series/api";
+import { selectors } from "@Packages/Anilist/Series/state";
+import { Series } from "@Packages/Anilist/Series/types";
 import { useAppSelector } from "src/App/hooks";
 
 const Anime: FC = () => {

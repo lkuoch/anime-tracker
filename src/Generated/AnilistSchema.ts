@@ -1,5 +1,5 @@
 import gql from 'graphql-tag';
-export type Maybe<T> = T | null;
+export type Maybe<T> = T;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
@@ -291,6 +291,8 @@ export type Character = {
   dateOfBirth: Maybe<FuzzyDate>;
   /** The character's age. Note this is a string, not an int, it may contain further text and additional ages. */
   age: Maybe<Scalars['String']>;
+  /** The characters blood type */
+  bloodType: Maybe<Scalars['String']>;
   /** If the character is marked as favourite by the currently authenticated user */
   isFavourite: Scalars['Boolean'];
   /** If the character is blocked from being added to favourites */
@@ -2736,6 +2738,8 @@ export type Query = {
   AniChartUser: Maybe<AniChartUser>;
   /** Site statistics query */
   SiteStatistics: Maybe<SiteStatistics>;
+  /** Get the user who added a tag to a media */
+  MediaTagUser: Maybe<User>;
 };
 
 
@@ -3076,6 +3080,12 @@ export type QueryMarkdownArgs = {
   markdown: Scalars['String'];
 };
 
+
+export type QueryMediaTagUserArgs = {
+  tagId: Maybe<Scalars['Int']>;
+  mediaId: Maybe<Scalars['Int']>;
+};
+
 /** Media recommendation */
 export type Recommendation = {
   /** The id of the recommendation */
@@ -3388,6 +3398,8 @@ export type Staff = {
   yearsActive: Maybe<Array<Maybe<Scalars['Int']>>>;
   /** The persons birthplace or hometown */
   homeTown: Maybe<Scalars['String']>;
+  /** The persons blood type */
+  bloodType: Maybe<Scalars['String']>;
   /** If the staff member is marked as favourite by the currently authenticated user */
   isFavourite: Scalars['Boolean'];
   /** If the staff member is blocked from being added to favourites */
@@ -4002,6 +4014,8 @@ export type User = {
    * @deprecated Deprecated. Replaced with moderatorRoles field.
    */
   moderatorStatus: Maybe<Scalars['String']>;
+  /** The user's previously used names. */
+  previousNames: Maybe<Array<Maybe<UserPreviousName>>>;
 };
 
 
@@ -4098,6 +4112,16 @@ export type UserOptions = {
   activityMergeTime: Maybe<Scalars['Int']>;
   /** The language the user wants to see staff and character names in */
   staffNameLanguage: Maybe<UserStaffNameLanguage>;
+};
+
+/** A user's previous name */
+export type UserPreviousName = {
+  /** A previous name of the user. */
+  name: Maybe<Scalars['String']>;
+  /** When the user first changed from this name. */
+  createdAt: Maybe<Scalars['Int']>;
+  /** When the user most recently changed from this name. */
+  updatedAt: Maybe<Scalars['Int']>;
 };
 
 export type UserReleaseYearStatistic = {

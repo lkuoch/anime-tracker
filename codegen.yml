@@ -1,11 +1,13 @@
 schema: https://graphql.anilist.co/
 documents: "src/**/*.graphql"
 generates:
-  ./src/GraphQL/schema.ts:
+  ./src/Generated/AnilistSchema.ts:
     plugins:
       - typescript
       - typescript-operations
       - typescript-document-nodes
+    config:
+      maybeValue: T
 
 config:
   avoidOptionals: true

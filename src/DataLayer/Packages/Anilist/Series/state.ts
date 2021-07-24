@@ -1,10 +1,11 @@
 import { createSlice, createEntityAdapter } from "@reduxjs/toolkit";
 import { seriesApi } from "./api";
-import { RootState } from "@App/store";
-import { InnerState, Series } from "./types";
+
+import type { InnerState, Series } from "./types";
+import type { RootState } from "@App/store";
 
 // Slice details
-const name = "series";
+const name = "anilist-series";
 
 const adapter = createEntityAdapter<Series>({
   selectId: (series: Series) => series.id,
@@ -31,7 +32,7 @@ const { actions, reducer } = createSlice({
 });
 
 const selectors = {
-  selectCurrentPage: (state: RootState) => state.series.inner.currentPage,
+  selectCurrentPage: (state: RootState) => state[name].inner.currentPage,
   selectAdapted: (state: RootState) => ({
     ids: selector.selectIds(state),
     entities: selector.selectEntities(state),
