@@ -2,13 +2,13 @@ import React, { FC } from "react";
 import { Grid } from "@fluentui/react-northstar";
 
 import Card from "./card";
+import { useSelector } from "@Hooks";
 import { useGetSeriesQuery } from "@Packages/Anilist/Series/api";
 import { selectors } from "@Packages/Anilist/Series/state";
-import { useAppSelector } from "src/App/hooks";
 
 const Anime: FC = () => {
-  const page = useAppSelector(selectors.selectCurrentPage);
-  const entities = useAppSelector(selectors.selectEntities);
+  const page = useSelector(selectors.selectCurrentPage);
+  const entities = useSelector(selectors.selectAll);
   const { isLoading } = useGetSeriesQuery({ page });
 
   if (isLoading) {
@@ -17,8 +17,8 @@ const Anime: FC = () => {
 
   return (
     <Grid
-      content={Object.entries(entities).map(([id, entity]) => (
-        <Card key={id} id={id} entity={entity} />
+      content={entities.map((entity) => (
+        <Card key={entity.id} entity={entity} />
       ))}
     />
   );

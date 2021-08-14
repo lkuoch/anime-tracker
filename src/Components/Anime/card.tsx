@@ -3,23 +3,24 @@ import { Avatar, Card, CardHeader, CardBody, Flex, Text } from "@fluentui/react-
 import { Series } from "@Packages/Anilist/Series/types";
 
 interface Props {
-  id: string;
-  entity?: Series;
+  entity: Series;
 }
 
 const AnimeCard: FC<Props> = (props) => {
   const { entity } = props;
 
-  if (!entity) return null;
+  if (!entity) {
+    return null;
+  }
 
   return (
     <Card>
       <CardHeader>
         <Flex gap="gap.small">
           <Avatar
-            image={entity.coverImage.extraLarge!}
+            image={entity.coverImage.extraLarge}
             label="anime-cover-image"
-            name={entity?.title?.english}
+            name={entity.title.native}
             status="unknown"
           />
           <Flex column>
@@ -28,7 +29,7 @@ const AnimeCard: FC<Props> = (props) => {
           </Flex>
         </Flex>
       </CardHeader>
-      <CardBody>{entity?.description!}</CardBody>
+      <CardBody>{entity.description}</CardBody>
     </Card>
   );
 };

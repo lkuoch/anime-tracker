@@ -9,7 +9,9 @@ const name = "anilist-series";
 
 const adapter = createEntityAdapter<Series>({
   selectId: (series: Series) => series.id,
-  sortComparer: false,
+
+  // Sort on show title
+  sortComparer: (a, b) => a.title.native.localeCompare(b.title.native),
 });
 
 const entitySelector = adapter.getSelectors<RootState>((state) => state[name]);
