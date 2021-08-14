@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { ChakraProvider } from "@chakra-ui/react";
+import { Provider as FluentProvider, teamsTheme } from "@fluentui/react-northstar";
 
 import { store } from "@App/store";
 import App from "@Components/index";
@@ -9,9 +9,9 @@ import App from "@Components/index";
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <ChakraProvider>
+      <FluentProvider theme={teamsTheme}>
         <App />
-      </ChakraProvider>
+      </FluentProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

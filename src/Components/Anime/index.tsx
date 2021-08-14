@@ -1,15 +1,14 @@
 import React, { FC } from "react";
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Grid } from "@fluentui/react-northstar";
 
 import Card from "./card";
 import { useGetSeriesQuery } from "@Packages/Anilist/Series/api";
 import { selectors } from "@Packages/Anilist/Series/state";
-import { Series } from "@Packages/Anilist/Series/types";
 import { useAppSelector } from "src/App/hooks";
 
 const Anime: FC = () => {
   const page = useAppSelector(selectors.selectCurrentPage);
-  const { ids, entities } = useAppSelector(selectors.selectAdapted);
+  const entities = useAppSelector(selectors.selectEntities);
   const { isLoading } = useGetSeriesQuery({ page });
 
   if (isLoading) {
@@ -17,13 +16,11 @@ const Anime: FC = () => {
   }
 
   return (
-    <Grid templateColumns="repeat(5, 1fr)">
-      {ids.map((id) => (
-        <GridItem colSpan={1} key={id}>
-          <Card id={id as number} entity={entities[id] as Series} />
-        </GridItem>
+    <Grid
+      content={Object.entries(entities).map(([id, entity]) => (
+        <Card key={id} id={id} entity={entity} />
       ))}
-    </Grid>
+    />
   );
 };
 

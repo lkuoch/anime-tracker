@@ -3,8 +3,8 @@ import { SeriesQuery } from "@Generated/AnilistSchema";
 
 export type Series = DeepExtractTypeSkipArrays<SeriesQuery, ["Page", "media"]>;
 
-export interface InnerState {
-  inner: {
+export interface State {
+  state: {
     currentPage: number;
   };
 }

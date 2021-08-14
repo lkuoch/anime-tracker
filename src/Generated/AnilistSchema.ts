@@ -4382,10 +4382,7 @@ export type SeriesQueryVariables = Exact<{
 }>;
 
 
-export type SeriesQuery = { Page: Maybe<{ media: Maybe<Array<Maybe<(
-      Pick<Media, 'id' | 'description' | 'bannerImage'>
-      & { title: Maybe<Pick<MediaTitle, 'romaji' | 'english' | 'native'>>, coverImage: Maybe<Pick<MediaCoverImage, 'extraLarge'>> }
-    )>>> }> };
+export type SeriesQuery = { Page: Maybe<{ media: Maybe<Array<Maybe<{ id: number, description: Maybe<string>, bannerImage: Maybe<string>, title: Maybe<{ romaji: Maybe<string>, english: Maybe<string>, native: Maybe<string> }>, coverImage: Maybe<{ extraLarge: Maybe<string> }> }>>> }> };
 
 
 export const Series = gql`
