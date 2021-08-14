@@ -1,8 +1,7 @@
 import React, { FC } from "react";
-import { Header as FluentHeader } from "@fluentui/react-northstar";
 
 const Header: FC = () => {
-  return <FluentHeader content="AniList" description="Override application" />;
+  return <h1>ANILIST</h1>;
 };
 
 export default Header;

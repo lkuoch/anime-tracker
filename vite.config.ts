@@ -7,6 +7,9 @@ import config from "./src/App/Config";
 export default defineConfig(({ mode }) => ({
   plugins: [tsconfigPaths(), reactRefresh()],
   define: {
+    // For eui to work
+    global: "globalThis",
+
     CONFIG: JSON.stringify(config(mode === "production")),
   },
 }));

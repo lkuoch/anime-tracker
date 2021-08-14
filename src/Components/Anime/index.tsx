@@ -1,10 +1,11 @@
 import React, { FC } from "react";
-import { Grid } from "@fluentui/react-northstar";
 
-import Card from "./card";
 import { useSelector } from "@Hooks";
 import { useGetSeriesQuery } from "@Packages/Anilist/Series/api";
 import { selectors } from "@Packages/Anilist/Series/state";
+
+import { EuiFlexGrid, EuiLoadingSpinner } from "@elastic/eui";
+import Card from "./card";
 
 const Anime: FC = () => {
   const page = useSelector(selectors.selectCurrentPage);
@@ -12,15 +13,19 @@ const Anime: FC = () => {
   const { isLoading } = useGetSeriesQuery({ page });
 
   if (isLoading) {
-    return <h1>LOADING!!!</h1>;
+    return (
+      <div>
+        <EuiLoadingSpinner size="xl" />
+      </div>
+    );
   }
 
   return (
-    <Grid
-      content={entities.map((entity) => (
+    <EuiFlexGrid columns={4}>
+      {entities.map((entity) => (
         <Card key={entity.id} entity={entity} />
       ))}
-    />
+    </EuiFlexGrid>
   );
 };
 

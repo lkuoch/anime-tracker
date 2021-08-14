@@ -1,5 +1,7 @@
 import React, { FC } from "react";
-import { Avatar, Card, CardHeader, CardBody, Flex, Text } from "@fluentui/react-northstar";
+
+import { EuiCard, EuiFlexItem } from "@elastic/eui";
+
 import { Series } from "@Packages/Anilist/Series/types";
 
 interface Props {
@@ -9,28 +11,19 @@ interface Props {
 const AnimeCard: FC<Props> = (props) => {
   const { entity } = props;
 
-  if (!entity) {
-    return null;
-  }
-
   return (
-    <Card>
-      <CardHeader>
-        <Flex gap="gap.small">
-          <Avatar
-            image={entity.coverImage.extraLarge}
-            label="anime-cover-image"
-            name={entity.title.native}
-            status="unknown"
-          />
-          <Flex column>
-            <Text content={entity.title.english} weight="bold" />
-            <Text content={entity.title.native} size="small" />
-          </Flex>
-        </Flex>
-      </CardHeader>
-      <CardBody>{entity.description}</CardBody>
-    </Card>
+    <EuiFlexItem>
+      <EuiCard
+        textAlign="left"
+        image={
+          <div>
+            <img src={entity.coverImage.medium} alt={entity.title.native} />
+          </div>
+        }
+        title={entity.title.native}
+        description={entity.title.english}
+      />
+    </EuiFlexItem>
   );
 };
 

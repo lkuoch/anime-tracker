@@ -10,7 +10,7 @@ query Series($page: Int) {
       }
       description
       coverImage {
-        extraLarge
+        medium
       }
       bannerImage
     }
