@@ -7,6 +7,7 @@ generates:
       - typescript-operations
       - typescript-document-nodes
     config:
+      constEnums: true
       maybeValue: T
 
 config:

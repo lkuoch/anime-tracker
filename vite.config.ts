@@ -5,11 +5,11 @@ import config from "./src/App/Config";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  plugins: [tsconfigPaths(), reactRefresh()],
   define: {
     // For eui to work
     global: "globalThis",
 
-    CONFIG: JSON.stringify(config(mode === "production")),
+    $CONFIG: JSON.stringify(config(mode === "production")),
   },
+  plugins: [tsconfigPaths(), reactRefresh()],
 }));

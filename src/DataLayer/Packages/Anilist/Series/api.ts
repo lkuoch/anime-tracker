@@ -6,7 +6,7 @@ import { Series, SeriesQueryVariables, SeriesQuery } from "@Generated/AnilistSch
 export const seriesApi = createApi({
   reducerPath: "anlist-series-api",
   baseQuery: fetchBaseQuery({
-    baseUrl: CONFIG.vars.anilist_endpoint,
+    baseUrl: $CONFIG.vars.anilist_endpoint,
   }),
   endpoints: (builder) => ({
     getSeries: builder.query<SeriesQuery, SeriesQueryVariables>({

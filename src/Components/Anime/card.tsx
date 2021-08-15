@@ -17,7 +17,7 @@ const AnimeCard: FC<Props> = (props) => {
         textAlign="left"
         image={
           <div>
-            <img src={entity.coverImage.medium} alt={entity.title.native} />
+            <img src={entity.coverImage.large} alt={entity.title.native} />
           </div>
         }
         title={entity.title.native}
