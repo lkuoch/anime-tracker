@@ -1,5 +1,4 @@
-import React, { FC } from "react";
-
+import React from "react";
 import { EuiCard, EuiFlexItem } from "@elastic/eui";
 
 import { Series } from "@Packages/Anilist/Series/types";
@@ -8,21 +7,20 @@ interface Props {
   entity: Series;
 }
 
-const AnimeCard: FC<Props> = (props) => {
+const AnimeCard = (props: Props) => {
   const { entity } = props;
 
   return (
     <EuiFlexItem>
-      <EuiCard
-        textAlign="left"
-        image={
-          <div>
-            <img src={entity.coverImage.large} alt={entity.title.native} />
-          </div>
-        }
-        title={entity.title.native}
-        description={entity.title.english}
-      />
+      <EuiCard textAlign="center" title={entity.title.native} description="" style={{ height: "100%" }}>
+        <img
+          src={entity.coverImage.large}
+          alt={entity.title.native}
+          width="85%"
+          height="275px"
+          style={{ display: "block", margin: "auto" }}
+        />
+      </EuiCard>
     </EuiFlexItem>
   );
 };

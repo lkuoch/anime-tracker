@@ -1,13 +1,12 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi } from "@reduxjs/toolkit/query/react";
 import { print } from "graphql";
 
+import baseQuery from "../api";
 import { Series, SeriesQueryVariables, SeriesQuery } from "@Generated/AnilistSchema";
 
 export const seriesApi = createApi({
   reducerPath: "anlist-series-api",
-  baseQuery: fetchBaseQuery({
-    baseUrl: $CONFIG.vars.anilist_endpoint,
-  }),
+  baseQuery,
   endpoints: (builder) => ({
     getSeries: builder.query<SeriesQuery, SeriesQueryVariables>({
       query: (variables = { page: 0 }) => ({

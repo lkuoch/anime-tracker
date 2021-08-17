@@ -1,6 +1,6 @@
 import { fetchBaseQuery, retry } from "@reduxjs/toolkit/query/react";
 
-export const api = retry(
+export default retry(
   fetchBaseQuery({
     baseUrl: $CONFIG.vars.anilist_endpoint,
   }),

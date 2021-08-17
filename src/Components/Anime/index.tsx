@@ -1,18 +1,23 @@
 import React, { FC } from "react";
+import { EuiButton, EuiFlexGrid, EuiLoadingSpinner } from "@elastic/eui";
 
-import { useSelector } from "@Hooks";
+import { useSelector, useDispatch } from "@Hooks";
 import { useGetSeriesQuery } from "@Packages/Anilist/Series/api";
-import { selectors } from "@Packages/Anilist/Series/state";
+import { actions, selectors } from "@Packages/Anilist/Series/state";
 
-import { EuiFlexGrid, EuiLoadingSpinner } from "@elastic/eui";
 import Card from "./card";
 
 const Anime: FC = () => {
+  const dispatch = useDispatch();
   const page = useSelector(selectors.selectCurrentPage);
   const entities = useSelector(selectors.selectAll);
   const { isLoading } = useGetSeriesQuery({ page });
 
-  if (isLoading) {
+  const incrementPageCount = () => {
+    dispatch(actions.incrementCurrentPage());
+  };
+
+  if (isLoading && page === 0) {
     return (
       <div>
         <EuiLoadingSpinner size="xl" />
@@ -21,11 +26,17 @@ const Anime: FC = () => {
   }
 
   return (
-    <EuiFlexGrid columns={4}>
-      {entities.map((entity) => (
-        <Card key={entity.id} entity={entity} />
-      ))}
-    </EuiFlexGrid>
+    <>
+      <EuiButton color="primary" onClick={incrementPageCount}>
+        Fetch next page
+      </EuiButton>
+
+      <EuiFlexGrid columns={4}>
+        {entities.map((entity) => (
+          <Card key={entity.id} entity={entity} />
+        ))}
+      </EuiFlexGrid>
+    </>
   );
 };
 

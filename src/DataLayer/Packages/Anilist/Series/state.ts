@@ -11,7 +11,7 @@ const adapter = createEntityAdapter<Series>({
   selectId: (series: Series) => series.id,
 
   // Sort on show title
-  sortComparer: (a, b) => a.title.native.localeCompare(b.title.native),
+  sortComparer: false,
 });
 
 const entitySelector = adapter.getSelectors<RootState>((state) => state[name]);
@@ -25,7 +25,11 @@ const initialState = adapter.getInitialState<State>({
 const { actions, reducer } = createSlice({
   name,
   initialState,
-  reducers: {},
+  reducers: {
+    incrementCurrentPage: (slice) => {
+      slice.state.currentPage += 1;
+    },
+  },
   extraReducers: (builder) => {
     builder.addMatcher(seriesApi.endpoints.getSeries.matchFulfilled, (state, { payload: { Page } }) => {
       adapter.addMany(state, Page.media);
