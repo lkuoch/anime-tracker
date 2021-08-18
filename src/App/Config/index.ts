@@ -1,7 +1,5 @@
 const config = (isProd: boolean) => ({
-  vars: {
-    anilist_endpoint: "https://graphql.anilist.co/",
-  },
+  isProd,
 
   features: {
     serviceWorker: {
@@ -13,6 +11,10 @@ const config = (isProd: boolean) => ({
       enabled: true,
       __description__: "Shows the header on the main cart page",
     },
+  },
+
+  vars: {
+    anilist_endpoint: "https://graphql.anilist.co/",
   },
 });
 

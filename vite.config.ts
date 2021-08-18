@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => ({
     // For eui to work
     global: "globalThis",
 
-    $CONFIG: JSON.stringify(config(mode === "production")),
+    _CONFIG_: JSON.stringify(config(mode === "production")),
   },
   plugins: [tsconfigPaths(), reactRefresh()],
 }));
