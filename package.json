@@ -14,7 +14,7 @@
     ]
   },
   "dependencies": {
-    "@elastic/eui": "37.2.0",
+    "@elastic/eui": "37.3.0",
     "@reduxjs/toolkit": "1.6.1",
     "graphql": "15.5.1",
     "lodash": "4.17.21",
@@ -23,11 +23,11 @@
     "react-redux": "7.2.4"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "2.0.1",
-    "@graphql-codegen/typescript": "2.0.0",
-    "@graphql-codegen/typescript-document-nodes": "2.0.0",
-    "@graphql-codegen/typescript-operations": "2.0.1",
-    "@types/enzyme": "^3.10.9",
+    "@graphql-codegen/cli": "2.1.1",
+    "@graphql-codegen/typescript": "2.1.0",
+    "@graphql-codegen/typescript-document-nodes": "2.1.0",
+    "@graphql-codegen/typescript-operations": "2.1.0",
+    "@types/enzyme": "3.10.9",
     "@types/graphql": "14.5.0",
     "@types/jest": "27.0.1",
     "@types/lodash": "4.14.172",

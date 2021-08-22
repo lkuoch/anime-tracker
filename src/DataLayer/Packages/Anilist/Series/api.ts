@@ -5,7 +5,7 @@ import baseQuery from "../api";
 import { Series, SeriesQueryVariables, SeriesQuery } from "@Generated/AnilistSchema";
 
 export const seriesApi = createApi({
-  reducerPath: "anlist-series-api",
+  reducerPath: "[API]: anlist-series",
   baseQuery,
   endpoints: (builder) => ({
     getSeries: builder.query<SeriesQuery, SeriesQueryVariables>({

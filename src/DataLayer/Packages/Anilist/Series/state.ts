@@ -5,7 +5,7 @@ import type { State, Series } from "./types";
 import type { RootState } from "@App/store";
 
 // Slice details
-const name = "anilist-series";
+const name = "[SLICE]: anilist-series";
 
 const adapter = createEntityAdapter<Series>({
   selectId: (series: Series) => series.id,
@@ -18,7 +18,7 @@ const entitySelector = adapter.getSelectors<RootState>((state) => state[name]);
 
 const initialState = adapter.getInitialState<State>({
   state: {
-    currentPage: 0,
+    currentPage: 1,
   },
 });
 

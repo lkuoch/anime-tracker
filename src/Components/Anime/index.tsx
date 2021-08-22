@@ -25,17 +25,19 @@ const Anime: FC = () => {
     );
   }
 
+  console.log(entities.length, entities);
+
   return (
     <>
-      <EuiButton color="primary" onClick={incrementPageCount}>
-        Fetch next page
-      </EuiButton>
-
       <EuiFlexGrid columns={4}>
         {entities.map((entity) => (
           <Card key={entity.id} entity={entity} />
         ))}
       </EuiFlexGrid>
+
+      <EuiButton color="primary" onClick={incrementPageCount}>
+        Fetch next page
+      </EuiButton>
     </>
   );
 };
