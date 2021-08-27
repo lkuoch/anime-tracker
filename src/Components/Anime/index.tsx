@@ -25,8 +25,6 @@ const Anime: FC = () => {
     );
   }
 
-  console.log(entities.length, entities);
-
   return (
     <>
       <EuiFlexGrid columns={4}>

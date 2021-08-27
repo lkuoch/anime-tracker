@@ -11,7 +11,7 @@ const adapter = createEntityAdapter<Series>({
   selectId: (series: Series) => series.id,
 
   // Sort on show title
-  sortComparer: false,
+  sortComparer: (a, b) => a.id - b.id,
 });
 
 const entitySelector = adapter.getSelectors<RootState>((state) => state[name]);
