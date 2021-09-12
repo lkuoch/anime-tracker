@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { apiMap, apiMiddleware, reducerMap } from "@DataLayer/index";
+import { apiMap, apiMiddleware, reducerMap } from "@Data";
 
 export const store = configureStore({
   devTools: !_CONFIG_.isProd,
@@ -9,6 +9,3 @@ export const store = configureStore({
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiMiddleware),
 });
-
-export type AppDispatch = typeof store.dispatch;
-export type RootState = ReturnType<typeof store.getState>;

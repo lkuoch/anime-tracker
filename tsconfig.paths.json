@@ -2,12 +2,14 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@App/*": ["./src/App/*"],
       "@Components/*": ["./src/Components/*"],
-      "@DataLayer/*": ["./src/DataLayer/*"],
+      "@Components": ["./src/Components/index.tsx"],
+      "@Config": ["./src/Config/index.ts"],
+      "@Data/*": ["./src/Data/*"],
+      "@Data": ["./src/Data/index.ts"],
       "@Generated/*": ["./src/Generated/*"],
-      "@Hooks": ["./src/App/hooks.ts"],
-      "@Packages/*": ["./src/DataLayer/Packages/*"],
+      "@Hooks": ["./src/Hooks/index.tsx"],
+      "@Types": ["./src/types"]
     }
   }
 }

@@ -1,5 +1,5 @@
-import * as series from "@Packages/Anilist/Series/state";
-import { seriesApi } from "@Packages/Anilist/Series/api";
+import * as series from "src/Data/Packages/Anilist/Series/state";
+import { seriesApi } from "src/Data/Packages/Anilist/Series/api";
 
 // Export reducer state
 export const reducers = {

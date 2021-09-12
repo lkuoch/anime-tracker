@@ -1,16 +1,16 @@
 import React, { FC } from "react";
 import { EuiButton, EuiFlexGrid, EuiLoadingSpinner } from "@elastic/eui";
 
-import { useSelector, useDispatch } from "@Hooks";
-import { useGetSeriesQuery } from "@Packages/Anilist/Series/api";
-import { actions, selectors } from "@Packages/Anilist/Series/state";
+import { useReduxDispatch, useReduxSelector } from "@Hooks";
+import { useGetSeriesQuery } from "src/Data/Packages/Anilist/Series/api";
+import { actions, selectors } from "src/Data/Packages/Anilist/Series/state";
 
 import Card from "./card";
 
 const Anime: FC = () => {
-  const dispatch = useDispatch();
-  const page = useSelector(selectors.selectCurrentPage);
-  const entities = useSelector(selectors.selectAll);
+  const dispatch = useReduxDispatch();
+  const page = useReduxSelector(selectors.selectCurrentPage);
+  const entities = useReduxSelector(selectors.selectAll);
   const { isLoading } = useGetSeriesQuery({ page });
 
   const incrementPageCount = () => {

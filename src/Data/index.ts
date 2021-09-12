@@ -1,5 +1,5 @@
-import * as app from "@DataLayer/App/state";
-import * as anilist from "@Packages/Anilist";
+import * as app from "src/Data/App/state";
+import * as anilist from "src/Data/Packages/Anilist";
 
 
 // Export reducer state

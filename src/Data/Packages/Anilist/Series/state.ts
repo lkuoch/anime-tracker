@@ -2,7 +2,7 @@ import { createSlice, createEntityAdapter } from "@reduxjs/toolkit";
 import { seriesApi } from "./api";
 
 import type { State, Series } from "./types";
-import type { RootState } from "@App/store";
+import type { RootState } from "@Types";
 
 // Slice details
 const name = "[SLICE]: anilist-series";

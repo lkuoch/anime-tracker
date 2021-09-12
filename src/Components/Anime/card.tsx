@@ -1,7 +1,7 @@
 import React from "react";
 import { EuiCard, EuiFlexItem } from "@elastic/eui";
 
-import { Series } from "@Packages/Anilist/Series/types";
+import { Series } from "src/Data/Packages/Anilist/Series/types";
 
 interface Props {
   entity: Series;
